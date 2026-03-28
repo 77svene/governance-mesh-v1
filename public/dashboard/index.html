@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GovMesh | Governance Liquidity Layer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <h1>GovMesh</h1>
+            <nav>
+                <button id="connectWallet" class="btn-primary">Connect Wallet</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container grid">
+        <!-- Left Column: Admin Panel -->
+        <section class="card" aria-labelledby="admin-title">
+            <h2 id="admin-title">DAO Admin Panel</h2>
+            <p class="subtitle">Deposit tokens to earn governance premiums.</p>
+            
+            <div class="form-group">
+                <label for="vaultSelect">Select Governance Vault</label>
+                <select id="vaultSelect" class="input-field">
+                    <option value="">Loading vaults...</option>
+                </select>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="label">Your Balance</span>
+                    <span id="userBalance" class="value">0.00</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">Vault APY</span>
+                    <span id="vaultApy" class="value">--%</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="depositAmount">Amount to Deposit</label>
+                <input type="number" id="depositAmount" class="input-field" placeholder="0.0">
+                <div id="depositError" class="error-text hidden" role="alert"></div>
+            </div>
+
+            <div class="actions">
+                <button id="btnDeposit" class="btn-action" disabled>Deposit</button>
+                <button id="btnWithdraw" class="btn-secondary" disabled>Withdraw</button>
+            </div>
+            
+            <div id="adminLoading" class="loading-spinner hidden" aria-label="Processing transaction"></div>
+        </section>
+
+        <!-- Right Column: Market Explorer -->
+        <section class="card" aria-labelledby="market-title">
+            <div class="header-flex">
+                <h2 id="market-title">Governance Market</h2>
+                <div class="badge" id="activeProposalsCount">0 Active Proposals</div>
+            </div>
+            
+            <div id="marketError" class="error-banner hidden" role="alert">
+                Failed to load market data. <button onclick="location.reload()">Retry</button>
+            </div>
+
+            <div class="table-container">
+                <table class="market-table">
+                    <thead>
+                        <tr>
+                            <th>DAO / Proposal</th>
+                            <th>Weight Available</th>
+                            <th>Premium (Hourly)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="marketBody">
+                        <!-- Skeleton Loading State -->
+                        <tr class="skeleton-row">
+                            <td colspan="4">Scanning mesh for active proposals...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lease Modal -->
+    <div id="leaseModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <h3 id="modalTitle">Lease Voting Power</h3>
+            <div id="leaseDetails"></div>
+            <div class="form-group">
+                <label for="leaseDuration">Duration (Hours)</label>
+                <input type="number" id="leaseDuration" class="input-field" value="24" min="1">
+            </div>
+            <div class="cost-summary">
+                <span>Estimated Cost:</span>
+                <span id="estimatedCost">0.00 USDC</span>
+            </div>
+            <div class="modal-actions">
+                <button id="confirmLease" class="btn-primary">Confirm Lease</button>
+                <button id="closeModal" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 GovMesh Protocol. Built for Hackonomics.</p>
+            <div id="networkStatus" class="status-dot offline"></div>
+            <span id="networkName">Disconnected</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js" type="application/javascript"></script>
+    <script src="app.js"></script>
+</body>
+</html>
