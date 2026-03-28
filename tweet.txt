@@ -1,0 +1,7 @@
+Just shipped GovMesh — The Cross-DAO Liquidity & Delegation Layer for Hackonomics 2026 - Governance Innovation Track!
+
+GovMesh creates a secondary market for governance power by allowing DAOs to 'lease' treasury voting weight to other DAOs via ZK-verified delegation, solving the voter apathy and tr
+
+https://github.com/77svene/governance-mesh-v1
+
+#hackathon #AI #Web3 #DeFi @lablabai

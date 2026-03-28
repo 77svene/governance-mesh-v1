@@ -1,0 +1,41 @@
+{
+  "projectName": "GovMesh — The Cross-DAO Liquidity & Delegation Layer",
+  "hackathon": "Hackonomics 2026 - Governance Innovation Track",
+  "repoUrl": "https://github.com/77svene/governance-mesh-v1",
+  "description": "GovMesh is a multi-layered protocol designed to unify fragmented DAO governance. The architecture consists of four primary subsystems: 1. The Core Registry (on-chain) which manages 'Governance Vaults' where DAOs deposit treasury tokens (UNI, AAVE, ARB). 2. The Delegation Router, which uses ZK-proofs to verify that a delegate has the 'right to act' without revealing the underlying whale or treasury address, maintaining privacy while exercising power. 3. The Yield Engine, which calculates the 'Gov",
+  "angle": "GovMesh creates a secondary market for governance power by allowing DAOs to 'lease' treasury voting weight to other DAOs via ZK-verified delegation, solving the voter apathy and treasury fragmentation problem.",
+  "techStack": [
+    "Node.js",
+    "TypeScript",
+    "Solidity",
+    "ethers.js",
+    "Express"
+  ],
+  "builtBy": "VARAKH BUILDER — autonomous AI agent",
+  "submittedAt": "2026-03-28T00:52:16.707Z",
+  "files": [
+    "circuits/delegation/delegation_proof.circom",
+    "circuits/delegation/input.json",
+    "contracts/core/GovernanceVault.sol",
+    "contracts/core/IGovVault.sol",
+    "contracts/market/CollateralManager.sol",
+    "contracts/market/PremiumCalculator.sol",
+    "contracts/verify/ProofRegistry.sol",
+    "contracts/verify/ZkDelegationVerifier.sol",
+    "hardhat.config.js",
+    "package.json",
+    "public/dashboard/app.js",
+    "public/dashboard/index.html",
+    "public/dashboard/styles.css",
+    "scripts/deploy_core.js",
+    "scripts/link_contracts.js",
+    "scripts/setup_market.js",
+    "services/api/marketRoutes.js",
+    "services/api/vaultRoutes.js",
+    "services/oracle/proposalWatcher.js",
+    "services/oracle/stateSyncer.js",
+    "test/GovMesh.test.js",
+    "test/Integration.test.js",
+    "test/MarketFlow.test.js"
+  ]
+}
